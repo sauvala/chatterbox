@@ -15,6 +15,11 @@ class App extends Component {
     this.setState({ messages: this.state.messages.concat([message]) });
   }
 
+  componentDidUpdate()
+  {
+    window.scrollTo(0, document.body.scrollHeight);
+  }
+
   render() {
     return (
       <div className="App">
