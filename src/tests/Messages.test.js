@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SendMessages from './SendMessages';
+import Messages from '../Messages';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<SendMessages />, div);
+  ReactDOM.render(<Messages />, div);
 });
