@@ -6,6 +6,7 @@ class SendMessages extends Component {
         this.state = { message: '' };
         this.onUpdateSendingMessage = this.onUpdateSendingMessage.bind(this);
         this.onSendMessage = this.onSendMessage.bind(this);
+        this.onKeyPressed = this.onKeyPressed.bind(this);
     }
 
     onUpdateSendingMessage(event) {
@@ -17,11 +18,18 @@ class SendMessages extends Component {
         this.setState({ message: '' });
     }
 
+    onKeyPressed(event) {
+        if (event.key === 'Enter') {
+            this.onSendMessage();
+        }
+    }
+
     render() {
         return (
             <div>
                 <input type="text" value={this.state.message}
-                    onChange={this.onUpdateSendingMessage} size="50" />
+                    onChange={this.onUpdateSendingMessage}
+                    onKeyPress={this.onKeyPressed} size="50" />
                 <button onClick={this.onSendMessage}>Send</button>
             </div>
         );
