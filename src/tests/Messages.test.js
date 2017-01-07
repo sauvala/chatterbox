@@ -14,7 +14,8 @@ it('renders without crashing when has one message', () => {
 
 it('renders without crashing when has two same messages', () => {
   const div = document.createElement('div');
-  ReactDOM.render(<Messages messages={['message1', 'message1']}/>, div);
+  var message = 'message';
+  ReactDOM.render(<Messages messages={[message, message]}/>, div);
 });
 
 it('renders without crashing when has several messages', () => {
