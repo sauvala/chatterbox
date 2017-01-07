@@ -2,21 +2,15 @@ import React, { Component } from 'react';
 import './Messages.css'
 
 class Messages extends Component {
-  render() {
-    return (
-      <ul>
-        <li>
-          Message1
-        </li>
-        <li>
-          Message2
-        </li>
-        <li>
-          Message2
-        </li>
-      </ul>
-    );
-  }
+    render() {
+        const messages = this.props.messages.map(
+            (message, index) => <li key={index}>{message}</li>);
+        return (
+            <ul>
+                {messages}
+            </ul>
+        );
+    }
 }
 
 export default Messages;
