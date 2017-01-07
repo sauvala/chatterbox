@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, InputGroup, Button } from 'react-bootstrap';
+import './SendMessages.css';
 
 class SendMessages extends Component {
     constructor(props) {
@@ -43,13 +44,15 @@ class SendMessages extends Component {
         </InputGroup.Button>;
 
         return (
-            <FormGroup controlId="formInlineName"
-                onSubmit={event => event.preventDefault()}>
-                <InputGroup>
-                    {messageField}
-                    {sendMessageButton}
-                </InputGroup>
-            </FormGroup>
+            <footer>
+                <FormGroup
+                    onSubmit={event => event.preventDefault()}>
+                    <InputGroup>
+                        {messageField}
+                        {sendMessageButton}
+                    </InputGroup>
+                </FormGroup>
+            </footer>
         );
     }
 }

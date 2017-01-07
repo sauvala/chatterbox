@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Messages from './Messages.js';
 import SendMessages from './SendMessages';
+import MessagesViewSpace from './MessagesViewSpace';
 import './App.css';
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
           <h2>Chatterbox</h2>
         </div>
         <Messages messages={this.state.messages} />
+        <MessagesViewSpace />
         <SendMessages onSendMessage={this.onSendMessage} />
       </div>
     );
