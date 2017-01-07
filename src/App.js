@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Messages from './Messages.js';
+import SendMessages from './SendMessages.js';
 import './App.css';
 
 class App extends Component {
@@ -8,8 +10,8 @@ class App extends Component {
         <div className="App-header">
           <h2>Chatterbox</h2>
         </div>
-        <p className="App-intro">
-        </p>
+        <Messages />
+        <SendMessages />
       </div>
     );
   }
