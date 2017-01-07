@@ -38,9 +38,7 @@ class SendMessages extends Component {
         const sendMessageButton = <InputGroup.Button
             className="input-group-button"
             onClick={this.onSendMessage}>
-            <Button>
-                Send
-            </Button>
+            <Button>Send</Button>
         </InputGroup.Button>;
 
         return (

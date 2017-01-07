@@ -12,7 +12,7 @@ class App extends Component {
   }
 
   onSendMessage(message) {
-    this.setState({ messages: this.state.messages.concat(message) });
+    this.setState({ messages: this.state.messages.concat([message]) });
   }
 
   render() {
