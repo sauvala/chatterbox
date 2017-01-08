@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
-import './MessagesViewSpace.css';
 
 class MessagesViewSpace extends Component {
     render() {
+        const height = {
+            height: this.props.height
+        };
+
         return(
-            <div className="message-view-space" />
+            <div style={height} />
         );
     }
 }

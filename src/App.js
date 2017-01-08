@@ -26,8 +26,9 @@ class App extends Component {
         <div className="App-header">
           <h2>Chatterbox</h2>
         </div>
+        <MessagesViewSpace height={70}/>
         <Messages messages={this.state.messages} />
-        <MessagesViewSpace />
+        <MessagesViewSpace height={35}/>
         <SendMessages onSendMessage={this.onSendMessage} />
       </div>
     );
