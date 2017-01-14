@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Messages from '../Messages';
+import Messages from '../components/Messages';
 
 it('renders without crashing when messages is empty', () => {
   const div = document.createElement('div');
