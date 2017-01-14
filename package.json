@@ -54,7 +54,6 @@
   "dependencies": {
     "bootstrap": "^3.3.7",
     "concurrently": "^3.1.0",
-    "dotenv": "^2.0.0",
     "express": "^4.14.0",
     "nodemon": "^1.11.0",
     "react": "^15.4.2",
@@ -67,8 +66,7 @@
     "client": "node scripts/start.js",
     "build": "node scripts/build.js",
     "frontend-test": "node scripts/test.js --env=jsdom",
-    "backend-test": "mocha ./src/backend/tests/*.js --timeout 10000",
-    "heroku-postbuild": "npm run build"
+    "backend-test": "mocha ./src/backend/tests/*.js --timeout 10000"
   },
   "jest": {
     "collectCoverageFrom": [
