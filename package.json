@@ -18,7 +18,7 @@
     "cross-spawn": "4.0.2",
     "css-loader": "0.26.0",
     "detect-port": "1.0.1",
-    "dotenv": "2.0.0",
+    "dotenv": "^2.0.0",
     "eslint": "3.8.1",
     "eslint-config-react-app": "^0.5.0",
     "eslint-loader": "1.6.0",
@@ -65,10 +65,12 @@
     "server": "nodemon src/backend/server.js",
     "client": "node scripts/start.js",
     "build": "node scripts/build.js",
+    "test": "npm run backend-test && CI=false npm run frontend-test",
     "frontend-test": "node scripts/test.js --env=jsdom",
     "backend-test": "mocha ./src/backend/tests/*.js --timeout 10000"
   },
   "jest": {
+    "testPathDirs" : ["src/frontend/"],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ],
