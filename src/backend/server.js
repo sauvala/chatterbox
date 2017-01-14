@@ -11,3 +11,5 @@ app.get('/hello', (request, response) => {
 app.listen(app.get('port'), () => {
   console.log(`chatterbox backend server is running on port: ${app.get('port')}`);
 });
+
+module.exports = app;
