@@ -15,11 +15,11 @@ app.listen(app.get('port'), () => {
 
 if (process.env.NODE_ENV === 'production') {
   console.log("Running in production mode");
-  app.use(express.static(path.resolve('build/')));
+  app.use(express.static(path.join(__dirname, 'build')));
 }
 
 app.get('/', (request, response) => {
-  response.sendFile(path.resolve('build/index.html'));
+  response.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 module.exports = app;
