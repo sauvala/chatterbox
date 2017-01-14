@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Messages from './Messages.js';
 import SendMessages from './SendMessages';
 import MessagesViewSpace from './MessagesViewSpace';
-import './App.css';
+import '../styles/App.css';
 
 class App extends Component {
   constructor() {
