@@ -41,6 +41,7 @@
     "path-exists": "2.1.0",
     "postcss-loader": "1.0.0",
     "promise": "7.1.1",
+    "react-addons-test-utils": "^15.4.2",
     "react-dev-utils": "^0.4.2",
     "recursive-readdir": "2.1.0",
     "strip-ansi": "3.0.1",
@@ -67,9 +68,9 @@
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "server": "nodemon src/backend/server.js",
     "client": "node scripts/start.js",
-    "build": "node scripts/build.js",
-    "test": "npm run backend-test && CI=false npm run frontend-test",
-    "frontend-test": "node scripts/test.js --env=jsdom",
+    "build": "CI=true node scripts/build.js",
+    "test": "npm run backend-test && CI=true npm run frontend-test",
+    "frontend-test": "CI=true node scripts/test.js --env=jsdom --forceExit",
     "backend-test": "mocha ./src/backend/tests/*.js --timeout 10000"
   },
   "jest": {
