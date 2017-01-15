@@ -19,17 +19,13 @@ server.listen(app.get('port'), () => {
   console.log(`chatterbox backend server is running on port: ${app.get('port')}`);
 });
 
-io.on('connection', function(socket){
+io.on('connection', function(socket) {
   console.log('a user connected');
+  socket.on('client:sendMessage', function(message){
+    console.log('message: ' + message);
+    io.emit('server:message', message);
+  });
 });
-
-app.post('/sendMessage', (request, response) => {
-  console.log('/sendMessage from user: ' + request.body.user);
-  console.log('/sendMessage with message: ' + request.body.message);
-  response.sendStatus(200)
-});
-
-
 
 app.get('/', (request, response) => {
   response.sendFile(path.join(__dirname, buildFolder, 'index.html'));

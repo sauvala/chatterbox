@@ -3,6 +3,8 @@ import Messages from './Messages.js';
 import SendMessages from './SendMessages';
 import MessagesViewSpace from './MessagesViewSpace';
 import '../styles/App.css';
+import io from 'socket.io-client';
+let socket = io();
 
 class App extends Component {
   constructor() {
@@ -11,20 +13,14 @@ class App extends Component {
     this.onSendMessage = this.onSendMessage.bind(this);
   }
 
+  componentDidMount() {
+    socket.on('server:message', data => {
+      this.setState({ messages: this.state.messages.concat([data]) });
+    })
+  }
+
   onSendMessage(message) {
-    var headers = new Headers();
-    headers.append('content-type', 'application/json');
-    this.setState({ messages: this.state.messages.concat([message]) });
-    fetch('/sendMessage', {
-      method: 'post',
-      headers: headers,
-      body: JSON.stringify({
-        user: 'testuser',
-        message: message
-      })
-    }).then((response) => {
-      console.log(response);
-    });
+    socket.emit('client:sendMessage', message);
   }
 
   componentDidUpdate() {

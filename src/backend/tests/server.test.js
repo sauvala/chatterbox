@@ -9,10 +9,10 @@ let server = require('../server');
 chai.should();
 chai.use(chaiHttp);
 
-describe('/hello api call', () => {
+describe('/', () => {
     it('it should return a status 200', (done) => {
         chai.request(server)
-            .get('/hello')
+            .get('/')
             .end((err, res) => {
                 res.should.have.status(200);
                 done();
