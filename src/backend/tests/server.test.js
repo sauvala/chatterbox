@@ -9,7 +9,7 @@ let server = require('../server');
 chai.should();
 chai.use(chaiHttp);
 
-describe('/', () => {
+describe('/ backend call', () => {
     it('it should return a status 200', (done) => {
         chai.request(server)
             .get('/')

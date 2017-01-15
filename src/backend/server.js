@@ -1,10 +1,12 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const fs = require('fs');
 const bodyParser = require('body-parser');
 const server = require('http').createServer(app);
 const io = require('socket.io')(server);
 const buildFolder = '../../build';
+const publicFolder = '../../public';
 
 app.use(bodyParser.json());
 
@@ -28,7 +30,12 @@ io.on('connection', function(socket) {
 });
 
 app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, buildFolder, 'index.html'));
+  const buildIndex = path.join(__dirname, buildFolder, 'index.html');
+  if (fs.existsSync(path)) {
+    response.sendFile(buildIndex);
+  } else {
+    response.sendFile(path.join(__dirname, publicFolder, 'index.html'));
+  }
 });
 
 module.exports = app;
