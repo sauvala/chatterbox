@@ -52,13 +52,13 @@
     "whatwg-fetch": "1.0.0"
   },
   "dependencies": {
+    "body-parser": "^1.15.2",
     "bootstrap": "^3.3.7",
     "concurrently": "^3.1.0",
     "express": "^4.14.0",
     "nodemon": "^1.11.0",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.7",
-    "react-dom": "^15.4.2"
   },
   "scripts": {
     "start": "concurrently \"npm run server\" \"npm run client\"",
@@ -70,7 +70,9 @@
     "backend-test": "mocha ./src/backend/tests/*.js --timeout 10000"
   },
   "jest": {
-    "testPathDirs" : ["src/frontend/"],
+    "testPathDirs": [
+      "src/frontend/"
+    ],
     "collectCoverageFrom": [
       "src/**/*.{js,jsx}"
     ],

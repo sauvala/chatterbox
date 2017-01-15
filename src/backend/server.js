@@ -1,13 +1,16 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const bodyParser = require('body-parser');
 const buildFolder = '../../build';
 
+app.use(bodyParser.json());
 app.set('port', (process.env.PORT || 3001));
 
-app.get('/hello', (request, response) => {
-  console.log('called to backend');
-  response.send('hello from backend');
+app.post('/sendMessage', (request, response) => {
+  console.log('/sendMessage from user: ' + request.body.user);
+  console.log('/sendMessage with message: ' + request.body.message);
+  response.sendStatus(200)
 });
 
 app.listen(app.get('port'), () => {

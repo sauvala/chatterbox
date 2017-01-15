@@ -12,25 +12,36 @@ class App extends Component {
   }
 
   onSendMessage(message) {
+    var headers = new Headers();
+    headers.append('content-type', 'application/json');
     this.setState({ messages: this.state.messages.concat([message]) });
+    fetch('/sendMessage', {
+      method: 'post',
+      headers: headers,
+      body: JSON.stringify({
+        user: 'testuser',
+        message: message
+      })
+    }).then((response) => {
+      console.log(response);
+    });
   }
 
-  componentDidUpdate()
-  {
+  componentDidUpdate() {
     window.scrollTo(0, document.body.scrollHeight);
   }
 
   render() {
     return (
-      <div className="App">
+      <div className="App" >
         <div className="App-header">
           <h2>Chatterbox</h2>
         </div>
-        <MessagesViewSpace height={70}/>
+        <MessagesViewSpace height={70} />
         <Messages messages={this.state.messages} />
-        <MessagesViewSpace height={35}/>
+        <MessagesViewSpace height={35} />
         <SendMessages onSendMessage={this.onSendMessage} />
-      </div>
+      </div >
     );
   }
 }

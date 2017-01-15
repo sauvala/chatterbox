@@ -16,13 +16,8 @@ class SendMessages extends Component {
     }
 
     onSendMessage() {
-        console.log('foo');
         this.props.onSendMessage(this.state.message);
         this.setState({ message: '' });
-        fetch("/send")
-            .then((response) => {
-                console.log(response);
-            });
     }
 
     onKeyPressed(event) {
