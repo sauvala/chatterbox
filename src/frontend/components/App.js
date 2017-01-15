@@ -4,7 +4,7 @@ import SendMessages from './SendMessages';
 import MessagesViewSpace from './MessagesViewSpace';
 import '../styles/App.css';
 import io from 'socket.io-client';
-let socket = io();
+const socket = io();
 
 class App extends Component {
   constructor() {
