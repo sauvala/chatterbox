@@ -1,6 +1,7 @@
 const express = require('express');
 const app = express();
-var path = require('path');
+const path = require('path');
+const buildFolder = '../../build';
 
 app.set('port', (process.env.PORT || 3001));
 
@@ -15,11 +16,11 @@ app.listen(app.get('port'), () => {
 
 if (process.env.NODE_ENV === 'production') {
   console.log("Running in production mode");
-  app.use(express.static(path.join(__dirname, 'build')));
+  app.use(express.static(path.join(__dirname, buildFolder)));
 }
 
 app.get('/', (request, response) => {
-  response.sendFile(path.join(__dirname, '../../build', 'index.html'));
+  response.sendFile(path.join(__dirname, buildFolder, 'index.html'));
 });
 
 module.exports = app;
