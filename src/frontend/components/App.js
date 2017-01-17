@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import Messages from './Messages.js';
 import SendMessages from './SendMessages';
 import MessagesViewSpace from './MessagesViewSpace';
+import ChatRooms from './ChatRooms';
 import '../styles/App.css';
 import io from 'socket.io-client';
+import { Grid, Row, Col } from 'react-bootstrap';
 const socket = io();
 
 class App extends Component {
@@ -29,15 +31,24 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App" >
+      <div className="App">
         <div className="App-header">
           <h2>Chatterbox</h2>
         </div>
         <MessagesViewSpace height={70} />
-        <Messages messages={this.state.messages} />
+        <Grid fluid="true">
+          <Row className="show-grid">
+            <Col xs={3} md={3}>
+              <ChatRooms />
+            </Col>
+            <Col xs={10} md={10}>
+              <Messages messages={this.state.messages} />
+            </Col>
+          </Row>
+        </Grid>
         <MessagesViewSpace height={35} />
         <SendMessages onSendMessage={this.onSendMessage} />
-      </div >
+      </div>
     );
   }
 }
