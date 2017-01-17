@@ -9,7 +9,7 @@ const socket = io();
 class App extends Component {
   constructor() {
     super();
-    this.state = { messages: [''] };
+    this.state = { messages: [''], userName: 'Test User', chatRoom: 'main' };
     this.onSendMessage = this.onSendMessage.bind(this);
   }
 
@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   onSendMessage(message) {
-    socket.emit('client:sendMessage', message);
+    socket.emit('client:sendMessage', this.state.userName + ': ' + message);
   }
 
   componentDidUpdate() {
