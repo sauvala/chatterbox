@@ -70,8 +70,8 @@
     "client": "node scripts/start.js",
     "build": "CI=true node scripts/build.js",
     "test": "npm run test-server && CI=true npm run test-client",
-    "test-server": "CI=true node scripts/test.js --env=jsdom --forceExit",
-    "test-client": "mocha ./src/backend/tests/*.js --timeout 10000"
+    "test-client": "CI=true node scripts/test.js --env=jsdom --forceExit",
+    "test-server": "mocha ./src/backend/tests/*.js --timeout 10000"
   },
   "jest": {
     "testPathDirs": [
