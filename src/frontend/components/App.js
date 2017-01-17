@@ -41,7 +41,7 @@ class App extends Component {
             <Col xs={3} md={3}>
               <ChatRooms />
             </Col>
-            <Col xs={10} md={10}>
+            <Col xs={9} md={9}>
               <Messages messages={this.state.messages} />
             </Col>
           </Row>
