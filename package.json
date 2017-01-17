@@ -33,6 +33,7 @@
     "gzip-size": "3.0.0",
     "html-webpack-plugin": "2.24.0",
     "http-proxy-middleware": "0.17.2",
+    "istanbul": "^0.4.5",
     "jest": "17.0.2",
     "json-loader": "0.5.4",
     "mocha": "^3.2.0",
@@ -72,6 +73,9 @@
     "test": "npm run test-server && CI=true npm run test-client",
     "test-client": "CI=true node scripts/test.js --env=jsdom --forceExit",
     "test-server": "mocha ./src/backend/tests/*.js --timeout 10000"
+    "cover": "\"npm run cover-server\" && \"npm run cover-client\"",
+    "cover-server": "./node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha ./src/backend/tests/*.js",
+    "cover-client": "npm run test-client -- --coverage"
   },
   "jest": {
     "testPathDirs": [
