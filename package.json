@@ -69,9 +69,9 @@
     "server": "nodemon src/backend/server.js",
     "client": "node scripts/start.js",
     "build": "CI=true node scripts/build.js",
-    "test": "npm run backend-test && CI=true npm run frontend-test",
-    "frontend-test": "CI=true node scripts/test.js --env=jsdom --forceExit",
-    "backend-test": "mocha ./src/backend/tests/*.js --timeout 10000"
+    "test": "npm run test-server && CI=true npm run test-client",
+    "test-server": "CI=true node scripts/test.js --env=jsdom --forceExit",
+    "test-client": "mocha ./src/backend/tests/*.js --timeout 10000"
   },
   "jest": {
     "testPathDirs": [
