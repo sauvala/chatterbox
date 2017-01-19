@@ -42,12 +42,16 @@ class App extends Component {
               <ChatRooms />
             </Col>
             <Col xs={9} md={9}>
-              <Messages messages={this.state.messages} />
+              <Row>
+                <Messages messages={this.state.messages} />
+              </Row>
+              <Row>
+                <MessagesViewSpace height={35} />
+                <SendMessages onSendMessage={this.onSendMessage} />
+                </Row>
             </Col>
           </Row>
         </Grid>
-        <MessagesViewSpace height={35} />
-        <SendMessages onSendMessage={this.onSendMessage} />
       </div>
     );
   }

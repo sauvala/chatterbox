@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { ListGroup, ListGroupItem } from 'react-bootstrap';
+import '../styles/ChatRooms.css';
 
 class ChatRooms extends Component {
     constructor() {
@@ -8,17 +9,17 @@ class ChatRooms extends Component {
     }
 
     alertClicked() {
-        alert('You clicked the third ListGroupItem');
+        alert('You clicked the Room 2');
     }
 
     render() {
         return (
-            <div class="roomList">
+            <div className="roomList">
                 <ListGroup>
-                    <ListGroupItem href="#link1">Link 1</ListGroupItem>
-                    <ListGroupItem href="#link2">Link 2</ListGroupItem>
+                    <ListGroupItem>Main room</ListGroupItem>
+                    <ListGroupItem>Room 1</ListGroupItem>
                     <ListGroupItem onClick={this.alertClicked}>
-                        Trigger an alert
+                        Room 2
                     </ListGroupItem>
                 </ListGroup>
             </div>

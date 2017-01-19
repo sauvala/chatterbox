@@ -1,0 +1,7 @@
+.roomList {
+  position: fixed;
+  left: 0px;
+  top: 63px;
+  width: 20%;
+  background-color: lightgray;
+}
