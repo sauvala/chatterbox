@@ -13,6 +13,7 @@ class App extends Component {
     super();
     this.state = { messages: [''], userName: 'Test User', chatRoom: 'main' };
     this.onSendMessage = this.onSendMessage.bind(this);
+    this.changeRoom = this.changeRoom.bind(this);
   }
 
   componentDidMount() {
@@ -29,6 +30,10 @@ class App extends Component {
     window.scrollTo(0, document.body.scrollHeight);
   }
 
+  changeRoom(roomIndex) {
+    alert('You clicked the Room ' + roomIndex);
+  }
+
   render() {
     return (
       <div className="App">
@@ -36,10 +41,10 @@ class App extends Component {
           <h2>Chatterbox</h2>
         </div>
         <MessagesViewSpace height={70} />
-        <Grid fluid="true">
+        <Grid>
           <Row className="show-grid">
             <Col xs={3} md={3}>
-              <ChatRooms />
+              <ChatRooms changeRoom={this.changeRoom}/>
             </Col>
             <Col xs={9} md={9}>
               <Row>
