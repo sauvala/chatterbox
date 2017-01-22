@@ -11,7 +11,7 @@ const socket = io();
 class App extends Component {
   constructor() {
     super();
-    this.state = { messages: [''], userName: 'Test User', chatRoom: 'main' };
+    this.state = { messages: [''], userName: 'Test User', chatRooms: [''] };
     this.onSendMessage = this.onSendMessage.bind(this);
     this.changeRoom = this.changeRoom.bind(this);
   }
@@ -19,6 +19,10 @@ class App extends Component {
   componentDidMount() {
     socket.on('server:message', data => {
       this.setState({ messages: this.state.messages.concat([data]) });
+    })
+
+    socket.on('server:chatRooms', data => {
+      this.setState({ chatRooms: data });
     })
   }
 
@@ -44,7 +48,7 @@ class App extends Component {
         <Grid>
           <Row className="show-grid">
             <Col xs={3} md={3}>
-              <ChatRooms changeRoom={this.changeRoom}/>
+              <ChatRooms changeRoom={this.changeRoom} chatRooms={this.state.chatRooms} />
             </Col>
             <Col xs={9} md={9}>
               <Row>

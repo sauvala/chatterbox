@@ -4,15 +4,20 @@ import ChatRoomButton from './ChatRoomButton.js';
 import '../styles/ChatRooms.css';
 
 class ChatRooms extends Component {
-    render() {
-        return (
-            <div className="roomList">
-                <ListGroup height="100">
-                    <ChatRoomButton roomId="Hello" changeRoom={this.props.changeRoom}/>
-                </ListGroup>
-            </div>
-        );
-    }
+  render() {
+    const chatRooms = this.props.chatRooms.map(
+      (chatRoom, index) => <ChatRoomButton
+        key={index}
+        roomId={chatRoom}
+        changeRoom={this.props.changeRoom} />);
+    return (
+      <div className="roomList">
+        <ListGroup height="100">
+          {chatRooms}
+        </ListGroup>
+      </div>
+    );
+  }
 }
 
 export default ChatRooms;

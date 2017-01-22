@@ -8,6 +8,8 @@ const io = require('socket.io')(server);
 const buildFolder = '../../build';
 const publicFolder = '../../public';
 
+const chatRooms = ['Main Room'];
+
 app.use(bodyParser.json());
 
 if (process.env.NODE_ENV === 'production') {
@@ -23,6 +25,7 @@ server.listen(app.get('port'), () => {
 
 io.on('connection', function(socket) {
   console.log('a user connected');
+  socket.emit('server:chatRooms', chatRooms);
   socket.on('client:sendMessage', function(message){
     console.log('message: ' + message);
     io.emit('server:message', message);
