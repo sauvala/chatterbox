@@ -22,6 +22,7 @@ class App extends Component {
     this.createNewChatRoom = this.createNewChatRoom.bind(this);
     this.getRandomInt = this.getRandomInt.bind(this);
     this.usernamePopover = this.usernamePopover.bind(this);
+    this.changeUsername = this.changeUsername.bind(this);
   }
 
   componentDidMount() {
@@ -73,6 +74,11 @@ class App extends Component {
     }
   }
 
+  changeUsername(newUsername) {
+    
+    this.setState({username: newUsername});
+  }
+
   render() {
     return (
       <div>
@@ -86,8 +92,11 @@ class App extends Component {
             </Button>
           </div>
         </div>
-        <MessagesViewSpace height={70} />
+        <MessagesViewSpace height={100} />
         <Grid>
+        <ChangeUsername show={this.state.showChangeUsernamePopover}
+                  hidePopoverCallback={this.usernamePopover}
+                  changeUsernameCallback={this.changeUsername} />
           <Row className="show-grid">
             <Col xs={3} md={3}>
               <Row>
@@ -99,8 +108,6 @@ class App extends Component {
             </Col>
             <Col xs={9} md={9}>
               <Row>
-                <ChangeUsername show={this.state.showChangeUsernamePopover}
-                  hidePopoverCallback={this.usernamePopover} />
                 <Messages messages={this.state.messages} />
               </Row>
               <Row>
