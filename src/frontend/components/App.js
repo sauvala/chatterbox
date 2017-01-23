@@ -66,6 +66,7 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <h2>Chatterbox</h2>
+          Username: {this.state.username}
         </div>
         <MessagesViewSpace height={70} />
         <Grid>
