@@ -34,8 +34,8 @@ class App extends Component {
   }
 
   onSendMessage(message) {
-    console.log('Room:' + this.state.currentRoom);
-    socket.emit('client:sendMessage', this.state.userName + ': ' + message, this.state.currentRoom);
+    socket.emit('client:sendMessage',
+      this.state.userName + ': ' + message, this.state.currentRoom);
   }
 
   componentDidUpdate() {
@@ -49,8 +49,7 @@ class App extends Component {
 
   changeRoom(newRoomId) {
     var oldRoomId = this.state.currentRoom;
-    this.setState({currentRoom: newRoomId, messages: []});
-    console.log('Changing room: ' + oldRoomId + ' ' + newRoomId);
+    this.setState({ currentRoom: newRoomId, messages: [] });
     socket.emit('client:changeRoom', oldRoomId, newRoomId);
   }
 
@@ -78,7 +77,7 @@ class App extends Component {
               <Row>
                 <MessagesViewSpace height={35} />
                 <SendMessages onSendMessage={this.onSendMessage} />
-                </Row>
+              </Row>
             </Col>
           </Row>
         </Grid>

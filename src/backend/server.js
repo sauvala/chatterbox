@@ -23,25 +23,21 @@ server.listen(app.get('port'), () => {
   console.log(`chatterbox backend server is running on port: ${app.get('port')}`);
 });
 
-io.on('connection', function(socket) {
+io.on('connection', function (socket) {
   console.log('a user connected');
   socket.emit('server:userConnected', chatRooms);
 
-  socket.on('client:changeRoom', function(oldRoomId, newRoomId) {
+  socket.on('client:changeRoom', function (oldRoomId, newRoomId) {
     socket.leave(oldRoomId);
     socket.join(newRoomId);
-    console.log('Changed ' + oldRoomId + ' ' + newRoomId);
   });
 
-  socket.on('client:createNewChatRoom', function(newChatRoomId) {
-    console.log('Creating new room with name ' + newChatRoomId);
+  socket.on('client:createNewChatRoom', function (newChatRoomId) {
     chatRooms.push(newChatRoomId);
     io.emit('server:chatRoomsUpdate', chatRooms);
   });
 
-  socket.on('client:sendMessage', function(message, room){
-    console.log('message: ' + message);
-    console.log('room: ' + room);
+  socket.on('client:sendMessage', function (message, room) {
     io.in(room).emit('server:message', message);
   });
 });
