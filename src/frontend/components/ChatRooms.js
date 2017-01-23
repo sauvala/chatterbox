@@ -11,7 +11,7 @@ class ChatRooms extends Component {
         roomId={chatRoom}
         changeRoom={this.props.changeRoom} />);
     return (
-      <div className="roomList">
+      <div className="room-list">
         <ListGroup height="100">
           {chatRooms}
         </ListGroup>

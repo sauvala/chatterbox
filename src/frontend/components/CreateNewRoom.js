@@ -39,7 +39,7 @@ class CreateNewRoom extends Component {
     </InputGroup.Button>;
 
     return (
-      <FormGroup className="createNewRoom"
+      <FormGroup className="create-new-room"
         onSubmit={event => event.preventDefault()}>
         <InputGroup>
           {newChannelNameField}
