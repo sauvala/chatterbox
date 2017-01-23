@@ -4,6 +4,7 @@ import SendMessages from './SendMessages';
 import MessagesViewSpace from './MessagesViewSpace';
 import ChatRooms from './ChatRooms';
 import CreateNewRoom from './CreateNewRoom';
+import ChangeUsername from './ChangeUsername';
 import '../styles/App.css';
 import io from 'socket.io-client';
 import { Grid, Row, Col, Button } from 'react-bootstrap';
@@ -12,12 +13,15 @@ const socket = io();
 class App extends Component {
   constructor() {
     super();
-    this.state = { messages: [''], username: 'anonymous' + this.getRandomInt(1, 1000),
-     currentRoom: 'Main Room', chatRooms: [''] };
+    this.state = {
+      messages: [''], username: 'anonymous' + this.getRandomInt(1, 1000),
+      currentRoom: 'Main Room', chatRooms: [''], showChangeUsernamePopover: false
+    };
     this.onSendMessage = this.onSendMessage.bind(this);
     this.changeRoom = this.changeRoom.bind(this);
     this.createNewChatRoom = this.createNewChatRoom.bind(this);
     this.getRandomInt = this.getRandomInt.bind(this);
+    this.usernamePopover = this.usernamePopover.bind(this);
   }
 
   componentDidMount() {
@@ -61,6 +65,14 @@ class App extends Component {
     return Math.floor(Math.random() * (max - min)) + min;
   }
 
+  usernamePopover(isVisible) {
+    if (isVisible) {
+      this.setState({ showChangeUsernamePopover: true });
+    } else {
+      this.setState({ showChangeUsernamePopover: false });
+    }
+  }
+
   render() {
     return (
       <div>
@@ -68,7 +80,10 @@ class App extends Component {
           <h2>Chatterbox</h2>
           <div className="username">
             Username: {this.state.username}
-            <Button className="change-username-button">Change</Button>
+            <Button onClick={() => this.usernamePopover(true)}
+              className="change-username-button">
+              Change
+            </Button>
           </div>
         </div>
         <MessagesViewSpace height={70} />
@@ -84,6 +99,8 @@ class App extends Component {
             </Col>
             <Col xs={9} md={9}>
               <Row>
+                <ChangeUsername show={this.state.showChangeUsernamePopover}
+                  hidePopoverCallback={this.usernamePopover} />
                 <Messages messages={this.state.messages} />
               </Row>
               <Row>
