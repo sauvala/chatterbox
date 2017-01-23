@@ -6,7 +6,7 @@ import ChatRooms from './ChatRooms';
 import CreateNewRoom from './CreateNewRoom';
 import '../styles/App.css';
 import io from 'socket.io-client';
-import { Grid, Row, Col } from 'react-bootstrap';
+import { Grid, Row, Col, Button } from 'react-bootstrap';
 const socket = io();
 
 class App extends Component {
@@ -66,7 +66,10 @@ class App extends Component {
       <div className="App">
         <div className="App-header">
           <h2>Chatterbox</h2>
-          Username: {this.state.username}
+          <div className="username">
+            Username: {this.state.username}
+            <Button className="change-username-button">Change</Button>
+          </div>
         </div>
         <MessagesViewSpace height={70} />
         <Grid>

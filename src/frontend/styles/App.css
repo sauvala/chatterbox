@@ -6,3 +6,11 @@
   width: 100%;
   top: 0px;
 }
+
+.username {
+  float: right;
+}
+
+.change-username-button {
+  margin-left: 20px;
+}
