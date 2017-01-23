@@ -26,6 +26,13 @@ server.listen(app.get('port'), () => {
 io.on('connection', function(socket) {
   console.log('a user connected');
   socket.emit('server:chatRooms', chatRooms);
+
+  socket.on('client:createNewChatRoom', function(newChatRoomName) {
+    console.log('Creating new room with name ' + newChatRoomName);
+    chatRooms.push(newChatRoomName);
+    io.emit('server:chatRooms', chatRooms);
+  });
+
   socket.on('client:sendMessage', function(message){
     console.log('message: ' + message);
     io.emit('server:message', message);

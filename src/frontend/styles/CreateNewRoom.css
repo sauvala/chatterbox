@@ -1,7 +1,7 @@
-.roomList {
+.createNewRoom {
   position: fixed;
   left: 0px;
-  top: 63px;
+  bottom: 0px;
   width: 25%;
   background-color: lightgray;
 }

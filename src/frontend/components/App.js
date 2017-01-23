@@ -3,6 +3,7 @@ import Messages from './Messages.js';
 import SendMessages from './SendMessages';
 import MessagesViewSpace from './MessagesViewSpace';
 import ChatRooms from './ChatRooms';
+import CreateNewRoom from './CreateNewRoom';
 import '../styles/App.css';
 import io from 'socket.io-client';
 import { Grid, Row, Col } from 'react-bootstrap';
@@ -14,6 +15,7 @@ class App extends Component {
     this.state = { messages: [''], userName: 'Test User', chatRooms: [''] };
     this.onSendMessage = this.onSendMessage.bind(this);
     this.changeRoom = this.changeRoom.bind(this);
+    this.createNewChatRoom = this.createNewChatRoom.bind(this);
   }
 
   componentDidMount() {
@@ -38,6 +40,10 @@ class App extends Component {
     alert('You clicked the Room ' + roomIndex);
   }
 
+  createNewChatRoom(newRoomName) {
+    socket.emit('client:createNewChatRoom', newRoomName);
+  }
+
   render() {
     return (
       <div className="App">
@@ -48,7 +54,12 @@ class App extends Component {
         <Grid>
           <Row className="show-grid">
             <Col xs={3} md={3}>
-              <ChatRooms changeRoom={this.changeRoom} chatRooms={this.state.chatRooms} />
+              <Row>
+                <ChatRooms changeRoom={this.changeRoom} chatRooms={this.state.chatRooms} />
+              </Row>
+              <Row>
+                <CreateNewRoom onCreateNewChannel={this.createNewChatRoom} />
+              </Row>
             </Col>
             <Col xs={9} md={9}>
               <Row>
