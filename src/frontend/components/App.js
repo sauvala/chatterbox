@@ -12,7 +12,7 @@ const socket = io();
 class App extends Component {
   constructor() {
     super();
-    this.state = { messages: [''], userName: 'anonymous' + this.getRandomInt(1, 1000),
+    this.state = { messages: [''], username: 'anonymous' + this.getRandomInt(1, 1000),
      currentRoom: 'Main Room', chatRooms: [''] };
     this.onSendMessage = this.onSendMessage.bind(this);
     this.changeRoom = this.changeRoom.bind(this);
@@ -37,7 +37,7 @@ class App extends Component {
 
   onSendMessage(message) {
     socket.emit('client:sendMessage',
-      this.state.userName + ': ' + message, this.state.currentRoom);
+      this.state.username + ': ' + message, this.state.currentRoom);
   }
 
   componentDidUpdate() {
