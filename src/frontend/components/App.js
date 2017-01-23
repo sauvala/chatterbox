@@ -12,10 +12,11 @@ const socket = io();
 class App extends Component {
   constructor() {
     super();
-    this.state = { messages: [''], userName: 'Test User', currentRoom: 'Main Room', chatRooms: [''] };
+    this.state = { messages: [''], userName: 'anonymous' + this.getRandomInt(1, 1000), currentRoom: 'Main Room', chatRooms: [''] };
     this.onSendMessage = this.onSendMessage.bind(this);
     this.changeRoom = this.changeRoom.bind(this);
     this.createNewChatRoom = this.createNewChatRoom.bind(this);
+    this.getRandomInt = this.getRandomInt.bind(this);
   }
 
   componentDidMount() {
@@ -51,6 +52,12 @@ class App extends Component {
     var oldRoomId = this.state.currentRoom;
     this.setState({ currentRoom: newRoomId, messages: [] });
     socket.emit('client:changeRoom', oldRoomId, newRoomId);
+  }
+
+  getRandomInt(min, max) {
+    min = Math.ceil(min);
+    max = Math.floor(max);
+    return Math.floor(Math.random() * (max - min)) + min;
   }
 
   render() {
