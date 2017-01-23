@@ -25,17 +25,24 @@ server.listen(app.get('port'), () => {
 
 io.on('connection', function(socket) {
   console.log('a user connected');
-  socket.emit('server:chatRooms', chatRooms);
+  socket.emit('server:userConnected', chatRooms);
+
+  socket.on('client:changeRoom', function(oldRoomId, newRoomId) {
+    socket.leave(oldRoomId);
+    socket.join(newRoomId);
+    console.log('Changed ' + oldRoomId + ' ' + newRoomId);
+  });
 
   socket.on('client:createNewChatRoom', function(newChatRoomId) {
     console.log('Creating new room with name ' + newChatRoomId);
     chatRooms.push(newChatRoomId);
-    io.emit('server:chatRooms', chatRooms);
+    io.emit('server:chatRoomsUpdate', chatRooms);
   });
 
-  socket.on('client:sendMessage', function(message){
+  socket.on('client:sendMessage', function(message, room){
     console.log('message: ' + message);
-    io.emit('server:message', message);
+    console.log('room: ' + room);
+    io.in(room).emit('server:message', message);
   });
 });
 

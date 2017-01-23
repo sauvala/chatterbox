@@ -12,7 +12,7 @@ const socket = io();
 class App extends Component {
   constructor() {
     super();
-    this.state = { messages: [''], userName: 'Test User', chatRooms: [''] };
+    this.state = { messages: [''], userName: 'Test User', currentRoom: 'Main Room', chatRooms: [''] };
     this.onSendMessage = this.onSendMessage.bind(this);
     this.changeRoom = this.changeRoom.bind(this);
     this.createNewChatRoom = this.createNewChatRoom.bind(this);
@@ -21,27 +21,37 @@ class App extends Component {
   componentDidMount() {
     socket.on('server:message', data => {
       this.setState({ messages: this.state.messages.concat([data]) });
-    })
+    });
 
-    socket.on('server:chatRooms', data => {
+    socket.on('server:userConnected', data => {
       this.setState({ chatRooms: data });
-    })
+      this.changeRoom(data[0]);
+    });
+
+    socket.on('server:chatRoomsUpdate', chatRooms => {
+      this.setState({ chatRooms: chatRooms });
+    });
   }
 
   onSendMessage(message) {
-    socket.emit('client:sendMessage', this.state.userName + ': ' + message);
+    console.log('Room:' + this.state.currentRoom);
+    socket.emit('client:sendMessage', this.state.userName + ': ' + message, this.state.currentRoom);
   }
 
   componentDidUpdate() {
     window.scrollTo(0, document.body.scrollHeight);
   }
 
-  changeRoom(roomIndex) {
-    alert('You clicked the Room ' + roomIndex);
-  }
-
   createNewChatRoom(newRoomName) {
     socket.emit('client:createNewChatRoom', newRoomName);
+    this.changeRoom(newRoomName);
+  }
+
+  changeRoom(newRoomId) {
+    var oldRoomId = this.state.currentRoom;
+    this.setState({currentRoom: newRoomId, messages: []});
+    console.log('Changing room: ' + oldRoomId + ' ' + newRoomId);
+    socket.emit('client:changeRoom', oldRoomId, newRoomId);
   }
 
   render() {
