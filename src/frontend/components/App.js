@@ -12,7 +12,8 @@ const socket = io();
 class App extends Component {
   constructor() {
     super();
-    this.state = { messages: [''], userName: 'anonymous' + this.getRandomInt(1, 1000), currentRoom: 'Main Room', chatRooms: [''] };
+    this.state = { messages: [''], userName: 'anonymous' + this.getRandomInt(1, 1000),
+     currentRoom: 'Main Room', chatRooms: [''] };
     this.onSendMessage = this.onSendMessage.bind(this);
     this.changeRoom = this.changeRoom.bind(this);
     this.createNewChatRoom = this.createNewChatRoom.bind(this);
