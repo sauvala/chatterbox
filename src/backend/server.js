@@ -27,9 +27,9 @@ io.on('connection', function(socket) {
   console.log('a user connected');
   socket.emit('server:chatRooms', chatRooms);
 
-  socket.on('client:createNewChatRoom', function(newChatRoomName) {
-    console.log('Creating new room with name ' + newChatRoomName);
-    chatRooms.push(newChatRoomName);
+  socket.on('client:createNewChatRoom', function(newChatRoomId) {
+    console.log('Creating new room with name ' + newChatRoomId);
+    chatRooms.push(newChatRoomId);
     io.emit('server:chatRooms', chatRooms);
   });
 
