@@ -63,8 +63,8 @@ class App extends Component {
 
   render() {
     return (
-      <div className="App">
-        <div className="App-header">
+      <div>
+        <div className="app-header">
           <h2>Chatterbox</h2>
           <div className="username">
             Username: {this.state.username}
