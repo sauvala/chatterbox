@@ -20,16 +20,16 @@ new commits will be deployed automatically to Heroku via Travis CI.
 - Webpack module bundler and Webpack development server for frontend with hot reload
 - Nodemon for backend server hot reload 
 
-## Initial setup
-`npm install`
+## Setup for development
+`npm install`  
 at the root folder to install dependencies
 
-`npm start` 
+`npm start`  
 to start the development servers (backend and frontend). 
 Navigate to http://localhost:3000 at your browser to start chatting!
 
-`npm test`
+`npm test`  
 runs the frontend and backend tests
 
-`npm run build`
+`npm run build`  
 creates a build version than can be deployed
