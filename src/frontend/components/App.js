@@ -94,10 +94,7 @@ class App extends Component {
         </div>
         <MessagesViewSpace height={100} />
         <Grid>
-        <ChangeUsername show={this.state.showChangeUsernamePopover}
-                  hidePopoverCallback={this.usernamePopover}
-                  changeUsernameCallback={this.changeUsername} />
-          <Row className="show-grid">
+          <Row>
             <Col xs={3} md={3}>
               <Row>
                 <ChatRooms changeRoom={this.changeRoom} chatRooms={this.state.chatRooms} />
@@ -109,6 +106,9 @@ class App extends Component {
             <Col xs={9} md={9}>
               <Row>
                 <Messages messages={this.state.messages} />
+                <ChangeUsername show={this.state.showChangeUsernamePopover}
+          hidePopoverCallback={this.usernamePopover}
+          changeUsernameCallback={this.changeUsername} />
               </Row>
               <Row>
                 <MessagesViewSpace height={35} />

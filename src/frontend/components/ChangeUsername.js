@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Modal, Button, FormControl, FormGroup } from 'react-bootstrap';
-import '../styles/ChangeUsername.css';
 
 class ChangeUsername extends Component {
   constructor() {
@@ -46,13 +45,13 @@ class ChangeUsername extends Component {
   render() {
     if (this.props.show === true) {
       return (
-        <div className="modal-container" style={{ height: 250 }}>
+        <div className="static-modal">
           <Modal
             show={this.props.show}
             onHide={this.close}
             container={this}
-            aria-labelledby="contained-modal-title"
-            backdrop={false}>
+            backdrop={false} 
+            aria-labelledby='modal-label' >
 
             <Modal.Header closeButton>
               <Modal.Title id="contained-modal-title">
