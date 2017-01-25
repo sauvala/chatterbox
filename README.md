@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/sauvala/chatterbox.svg?branch=master)](https://travis-ci.org/sauvala/chatterbox)
 
-## Instruction
-This project is a simple web-based chat application.
+This is a simple web-based chat application.
 
 The live version can be found at Heroku: https://chatterboxchat.herokuapp.com/ and 
 new commits will be deployed automatically to Heroku via Travis CI.
@@ -20,7 +19,6 @@ new commits will be deployed automatically to Heroku via Travis CI.
 - Code coverage by istanbul
 - Webpack module bundler and Webpack development server for frontend with hot reload
 - Nodemon for backend server hot reload 
-- The basic setup was bootstrapped with Create React App (https://github.com/facebookincubator/create-react-app)
 
 ## Initial setup
 `npm install`
