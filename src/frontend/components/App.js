@@ -75,8 +75,7 @@ class App extends Component {
   }
 
   changeUsername(newUsername) {
-    
-    this.setState({username: newUsername});
+    this.setState({ username: newUsername });
   }
 
   render() {
