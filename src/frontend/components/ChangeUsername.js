@@ -3,8 +3,8 @@ import { Modal, Button, FormControl, FormGroup } from 'react-bootstrap';
 import '../styles/ChangeUsername.css';
 
 class ChangeUsername extends Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = { newUsername: '' };
     this.onChangeClick = this.onChangeClick.bind(this);
     this.close = this.close.bind(this);

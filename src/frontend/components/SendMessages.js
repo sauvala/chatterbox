@@ -3,8 +3,8 @@ import { FormGroup, FormControl, InputGroup, Button } from 'react-bootstrap';
 import '../styles/SendMessages.css';
 
 class SendMessages extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = { message: '' };
         this.onUpdateSendingMessage = this.onUpdateSendingMessage.bind(this);
         this.onSendMessage = this.onSendMessage.bind(this);
