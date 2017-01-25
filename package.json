@@ -73,7 +73,7 @@
     "test": "npm run test-server && CI=true npm run test-client",
     "test-client": "CI=true node scripts/test.js --env=jsdom --forceExit",
     "test-server": "mocha ./src/backend/tests/*.js",
-    "cover": "\"npm run cover-server\" && \"npm run cover-client\"",
+    "cover": "npm run cover-server && npm run cover-client",
     "cover-server": "./node_modules/.bin/istanbul cover node_modules/mocha/bin/_mocha ./src/backend/tests/*.js",
     "cover-client": "npm run test-client -- --coverage"
   },
