@@ -106,8 +106,8 @@ class App extends Component {
               <Row>
                 <Messages messages={this.state.messages} />
                 <ChangeUsername show={this.state.showChangeUsernamePopover}
-          hidePopoverCallback={this.usernamePopover}
-          changeUsernameCallback={this.changeUsername} />
+                  hidePopoverCallback={this.usernamePopover}
+                  changeUsernameCallback={this.changeUsername} />
               </Row>
               <Row>
                 <MessagesViewSpace height={35} />
