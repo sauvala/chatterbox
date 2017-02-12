@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { FormGroup, FormControl, InputGroup, Button } from 'react-bootstrap';
-import '../styles/SendMessages.css';
 
 class SendMessages extends Component {
     constructor() {

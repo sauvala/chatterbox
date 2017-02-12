@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import MenuButton from './MenuButton.js';
 import Messages from './Messages.js';
 import SendMessages from './SendMessages';
 import MessagesViewSpace from './MessagesViewSpace';
@@ -7,7 +8,6 @@ import CreateNewRoom from './CreateNewRoom';
 import ChangeUsername from './ChangeUsername';
 import '../styles/App.css';
 import io from 'socket.io-client';
-import { Grid, Row, Col, Button } from 'react-bootstrap';
 const socket = io();
 
 class App extends Component {
@@ -80,9 +80,14 @@ class App extends Component {
 
   render() {
     return (
-      <div className="main-content">
+      <div className="mainContent">
         <div className="title">
           <h1>Chatterbox</h1>
+          <div className="button">
+            <MenuButton onClick={() => this.usernamePopover(true)}>
+              
+              </MenuButton>
+          </div>
           {/*<div className="username">
             Username: {this.state.username}
             <Button onClick={() => this.usernamePopover(true)}
@@ -93,6 +98,9 @@ class App extends Component {
         </div>
         <div className="messages">
           <Messages messages={this.state.messages} />
+          <ChangeUsername show={this.state.showChangeUsernamePopover}
+            hidePopoverCallback={this.usernamePopover}
+            changeUsernameCallback={this.changeUsername} />
         </div>
         <div className="sendMessages">
           <SendMessages onSendMessage={this.onSendMessage} />

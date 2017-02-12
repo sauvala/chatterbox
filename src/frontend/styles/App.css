@@ -1,6 +1,14 @@
-.main-content {
+.mainContent {
   width: 100%;
   background-color: lightsalmon;
+}
+
+.button {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+  height: 35px;
+  widows: 35px;
 }
 
 .title {
