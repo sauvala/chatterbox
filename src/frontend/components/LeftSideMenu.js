@@ -9,7 +9,7 @@ class LeftSideMenu extends Component {
       display: this.props.visibility,
     };
     return (
-      <div style={style} className="background">
+      <div style={style} className="panel">
         <ChatRooms changeRoom={this.props.changeRoom} chatRooms={this.props.chatRooms} />
         <CreateNewRoom onCreateNewChannel={this.props.onCreateNewChannel} />
       </div>

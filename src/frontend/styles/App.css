@@ -1,9 +1,9 @@
-.mainContent {
+.main-content {
   width: 100%;
   background-color: white;
 }
 
-.changeUsername {
+.change-username {
   position: fixed;
   top: 0px;
   right: 0px;
@@ -11,7 +11,7 @@
   widows: 35px;
 }
 
-.selectChatRoom {
+.select-chat-room {
   position: fixed;
   top: 0px;
   left: 0px;
@@ -39,7 +39,7 @@
   width: 100%;
 }
 
-.sendMessages {
+.send-messages {
     position: fixed;
     bottom: 0px;
     height: 35px;
