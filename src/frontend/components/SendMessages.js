@@ -41,15 +41,13 @@ class SendMessages extends Component {
         </InputGroup.Button>;
 
         return (
-            <footer>
-                <FormGroup
-                    onSubmit={event => event.preventDefault()}>
-                    <InputGroup>
-                        {messageField}
-                        {sendMessageButton}
-                    </InputGroup>
-                </FormGroup>
-            </footer>
+            <FormGroup
+                onSubmit={event => event.preventDefault()}>
+                <InputGroup>
+                    {messageField}
+                    {sendMessageButton}
+                </InputGroup>
+            </FormGroup>
         );
     }
 }

@@ -80,19 +80,24 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <div className="app-header">
-          <h2>Chatterbox</h2>
-          <div className="username">
+      <div className="main-content">
+        <div className="title">
+          <h1>Chatterbox</h1>
+          {/*<div className="username">
             Username: {this.state.username}
             <Button onClick={() => this.usernamePopover(true)}
               className="change-username-button">
               Change
             </Button>
-          </div>
+          </div>*/}
         </div>
-        <MessagesViewSpace height={100} />
-        <Grid>
+        <div className="messages">
+          <Messages messages={this.state.messages} />
+        </div>
+        <div className="sendMessages">
+          <SendMessages onSendMessage={this.onSendMessage} />
+        </div>
+        {/*<Grid>
           <Row>
             <Col xs={3} md={3}>
               <Row>
@@ -115,7 +120,7 @@ class App extends Component {
               </Row>
             </Col>
           </Row>
-        </Grid>
+        </Grid>*/}
       </div>
     );
   }

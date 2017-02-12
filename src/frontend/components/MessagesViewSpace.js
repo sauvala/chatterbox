@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 class MessagesViewSpace extends Component {
     render() {
-        const height = {
-            height: this.props.height
+        const style = {
+            height: this.props.height + '%'
         };
 
         return(
-            <div style={height} />
+            <div style={style} />
         );
     }
 }
