@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {Menu} from 'react-entypo';
 import '../styles/MenuButton.css';
 import { Button } from 'react-bootstrap';
 

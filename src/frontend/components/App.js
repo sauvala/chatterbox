@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import MenuButton from './MenuButton.js';
 import Messages from './Messages.js';
 import SendMessages from './SendMessages';
-import MessagesViewSpace from './MessagesViewSpace';
-import ChatRooms from './ChatRooms';
-import CreateNewRoom from './CreateNewRoom';
 import ChangeUsername from './ChangeUsername';
+import LeftSideMenu from './LeftSideMenu';
 import '../styles/App.css';
 import io from 'socket.io-client';
 const socket = io();
@@ -15,7 +13,8 @@ class App extends Component {
     super();
     this.state = {
       messages: [''], username: 'anonymous' + this.getRandomInt(1, 1000),
-      currentRoom: 'Main Room', chatRooms: [''], showChangeUsernamePopover: false
+      currentRoom: 'Main Room', chatRooms: [''], showChangeUsernamePopover: false,
+      showLeftSideMenu: 'none'
     };
     this.onSendMessage = this.onSendMessage.bind(this);
     this.changeRoom = this.changeRoom.bind(this);
@@ -74,6 +73,14 @@ class App extends Component {
     }
   }
 
+  chatPopover() {
+    if (this.state.showLeftSideMenu === 'none') {
+      this.setState({ showLeftSideMenu: 'block' });
+    } else {
+      this.setState({ showLeftSideMenu: 'none' });
+    }
+  }
+
   changeUsername(newUsername) {
     this.setState({ username: newUsername });
   }
@@ -83,52 +90,28 @@ class App extends Component {
       <div className="mainContent">
         <div className="title">
           <h1>Chatterbox</h1>
-          <div className="button">
-            <MenuButton onClick={() => this.usernamePopover(true)}>
-              
-              </MenuButton>
+          <div className="changeUsername">
+            <MenuButton onClick={() => this.usernamePopover(true)} />
           </div>
-          {/*<div className="username">
-            Username: {this.state.username}
-            <Button onClick={() => this.usernamePopover(true)}
-              className="change-username-button">
-              Change
-            </Button>
-          </div>*/}
+          <div className="selectChatRoom">
+            <MenuButton onClick={() => this.chatPopover()} />
+          </div>
+        </div>
+        <div className="leftSideMenu">
+          <LeftSideMenu changeRoom={this.changeRoom} chatRooms={this.state.chatRooms}
+            onCreateNewChannel={this.createNewChatRoom} visibility={this.state.showLeftSideMenu} />
         </div>
         <div className="messages">
           <Messages messages={this.state.messages} />
           <ChangeUsername show={this.state.showChangeUsernamePopover}
             hidePopoverCallback={this.usernamePopover}
             changeUsernameCallback={this.changeUsername} />
+          <div>
+          </div>
         </div>
         <div className="sendMessages">
           <SendMessages onSendMessage={this.onSendMessage} />
         </div>
-        {/*<Grid>
-          <Row>
-            <Col xs={3} md={3}>
-              <Row>
-                <ChatRooms changeRoom={this.changeRoom} chatRooms={this.state.chatRooms} />
-              </Row>
-              <Row>
-                <CreateNewRoom onCreateNewChannel={this.createNewChatRoom} />
-              </Row>
-            </Col>
-            <Col xs={9} md={9}>
-              <Row>
-                <Messages messages={this.state.messages} />
-                <ChangeUsername show={this.state.showChangeUsernamePopover}
-                  hidePopoverCallback={this.usernamePopover}
-                  changeUsernameCallback={this.changeUsername} />
-              </Row>
-              <Row>
-                <MessagesViewSpace height={35} />
-                <SendMessages onSendMessage={this.onSendMessage} />
-              </Row>
-            </Col>
-          </Row>
-        </Grid>*/}
       </div>
     );
   }

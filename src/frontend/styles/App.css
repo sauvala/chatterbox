@@ -3,10 +3,18 @@
   background-color: lightsalmon;
 }
 
-.button {
+.changeUsername {
   position: fixed;
   top: 0px;
   right: 0px;
+  height: 35px;
+  widows: 35px;
+}
+
+.selectChatRoom {
+  position: fixed;
+  top: 0px;
+  left: 0px;
   height: 35px;
   widows: 35px;
 }
