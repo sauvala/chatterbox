@@ -12,7 +12,7 @@ class ChatRooms extends Component {
         changeRoom={this.props.changeRoom} />);
     return (
       <div className="room-list">
-        <ListGroup height="100">
+        <ListGroup>
           {chatRooms}
         </ListGroup>
       </div>

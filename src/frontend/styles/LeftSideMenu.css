@@ -1,6 +1,5 @@
 .panel {
   position: fixed;
-  left: 0px;
   top: 35px;
   width: 35%;
   height: 100%;
@@ -8,7 +7,42 @@
 }
 
 @media (max-width: 425px) { 
-   .panel {
-      width: 75%;
+  .panel {
+    width: 75%;
+  }
+}
+
+.chat-room-list {
+  height: 65%;
+  overflow: scroll;
+}
+
+@media (max-height: 700px) { 
+  .chat-room-list {
+    height: 60%;
+  }
+}
+
+@media (max-height: 600px) { 
+  .chat-room-list {
+    height: 50%;
+  }
+}
+
+@media (max-height: 400px) { 
+  .chat-room-list {
+    height: 35%;
+  }
+}
+
+@media (max-height: 300px) { 
+  .chat-room-list {
+    height: 20%;
+  }
+}
+
+@media (max-height: 250px) { 
+  .chat-room-list {
+    height: 25%;
   }
 }
