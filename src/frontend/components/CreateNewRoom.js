@@ -8,17 +8,10 @@ class CreateNewRoom extends Component {
     this.state = { newChannelName: '' };
     this.onUpdateNewChannelName = this.onUpdateNewChannelName.bind(this);
     this.onCreateNewChannel = this.onCreateNewChannel.bind(this);
-    this.onKeyPressed = this.onKeyPressed.bind(this);
   }
 
   onUpdateNewChannelName(event) {
     this.setState({ newChannelName: event.target.value });
-  }
-
-  onKeyPressed(event) {
-    if (event.key === 'Enter') {
-      this.onSendMessage();
-    }
   }
 
   onCreateNewChannel() {
