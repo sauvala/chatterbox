@@ -13,7 +13,7 @@ class LeftSideMenu extends Component {
     return (
       <div style={style} className="panel">
         <div>
-          Your username: Janne
+          Your username: {this.props.username}
         </div>
         <div>
           <Button>Change</Button>

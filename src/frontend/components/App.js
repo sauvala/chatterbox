@@ -98,7 +98,8 @@ class App extends Component {
           </div>
         </div>
         <LeftSideMenu changeRoom={this.changeRoom} chatRooms={this.state.chatRooms}
-          onCreateNewChannel={this.createNewChatRoom} visibility={this.state.showLeftSideMenu} />
+          onCreateNewChannel={this.createNewChatRoom} visibility={this.state.showLeftSideMenu}
+          username={this.state.username} />
         <div className="messages">
           <Messages messages={this.state.messages} />
           <ChangeUsername show={this.state.showChangeUsernamePopover}
