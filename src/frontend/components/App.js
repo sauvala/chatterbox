@@ -73,7 +73,7 @@ class App extends Component {
     }
   }
 
-  chatPopover() {
+  onSideMenuButtonClick() {
     if (this.state.showLeftSideMenu === 'none') {
       this.setState({ showLeftSideMenu: 'block' });
     } else {
@@ -90,16 +90,13 @@ class App extends Component {
       <div className="mainContent">
         <div className="title">
           <h1>Chatterbox</h1>
-          <div className="change-username">
-            <MenuButton onClick={() => this.usernamePopover(true)} />
-          </div>
           <div className="select-chat-room">
-            <MenuButton onClick={() => this.chatPopover()} />
+            <MenuButton onClick={() => this.onSideMenuButtonClick()} />
           </div>
         </div>
         <LeftSideMenu changeRoom={this.changeRoom} chatRooms={this.state.chatRooms}
           onCreateNewChannel={this.createNewChatRoom} visibility={this.state.showLeftSideMenu}
-          username={this.state.username} />
+          username={this.state.username} usernamePopover={this.usernamePopover}/>
         <div className="messages">
           <Messages messages={this.state.messages} />
           <ChangeUsername show={this.state.showChangeUsernamePopover}

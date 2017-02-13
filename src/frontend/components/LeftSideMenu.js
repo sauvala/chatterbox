@@ -16,10 +16,12 @@ class LeftSideMenu extends Component {
           Your username: {this.props.username}
         </div>
         <div>
-          <Button>Change</Button>
+          <Button onClick={() => this.props.usernamePopover(true)}>Change</Button>
         </div>
         Chatrooms:
-        <ChatRooms changeRoom={this.props.changeRoom} chatRooms={this.props.chatRooms} />
+        <div className="chat-room-list">
+          <ChatRooms changeRoom={this.props.changeRoom} chatRooms={this.props.chatRooms} />
+        </div>
         <CreateNewRoom onCreateNewChannel={this.props.onCreateNewChannel} />
       </div>
     );
