@@ -1,7 +1,7 @@
 .panel {
   position: fixed;
   top: 35px;
-  width: 35%;
+  width: 25%;
   height: 100%;
   color: white;
 }
@@ -14,7 +14,7 @@
 
 .chat-room-list {
   height: 65%;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 @media (max-height: 700px) { 
