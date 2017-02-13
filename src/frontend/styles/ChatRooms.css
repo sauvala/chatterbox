@@ -1,14 +1,3 @@
 .room-list {
-  position: fixed;
-  left: 0px;
-  top: 35px;
-  width: 35%;
-  height: 100%;
-  background-color: black;
-}
-
-@media (max-width: 425px) { 
-   .room-list {
-      width: 75%;
-  }
+  width: 100%;  
 }

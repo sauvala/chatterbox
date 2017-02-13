@@ -31,7 +31,7 @@ class CreateNewRoom extends Component {
       onChange={this.onUpdateNewChannelName}
       onKeyPress={this.onKeyPressed}
       value={this.state.newChannelName}
-      placeholder="New channel name..." />;
+      placeholder="New room name..." />;
 
     const createNewChatRoomButton = <InputGroup.Button
       onClick={this.onCreateNewChannel}>
@@ -39,13 +39,15 @@ class CreateNewRoom extends Component {
     </InputGroup.Button>;
 
     return (
-      <FormGroup className="create-new-room"
-        onSubmit={event => event.preventDefault()}>
-        <InputGroup>
-          {newChannelNameField}
-          {createNewChatRoomButton}
-        </InputGroup>
-      </FormGroup>
+      <div>
+        <FormGroup className="create-new-room"
+          onSubmit={event => event.preventDefault()}>
+          <InputGroup>
+            {newChannelNameField}
+            {createNewChatRoomButton}
+          </InputGroup>
+        </FormGroup>
+      </div>
     );
   }
 }

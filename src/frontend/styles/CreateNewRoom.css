@@ -1,13 +1,5 @@
 .create-new-room {
-  position: fixed;
-  left: 0px;
-  bottom: 20px;
-  width: 35%;
-  background-color: black;
-}
-
-@media (max-width: 425px) {
-  .create-new-room {
-    width: 75%;
-  }
+  position: absolute;
+  bottom: 60px;
+  width: 100%;
 }
